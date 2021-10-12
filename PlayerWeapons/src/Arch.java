@@ -1,38 +1,40 @@
 /**
- * Questa classe rappresenta un giocatore.
+ * Questa classe rappresenta un arco.
  * @author Samuel Banfi
  * @author Lorenzo Spadea
  * @version 09.10.2021
  */
-public class Sling extends Weapon {
-    
+
+public class Arch extends Weapon {
     /**
-     *
+    
      */
-    public Sling() {
-        super(1);
+    public Arch() {
+        super(50);
     }
-    
+
     /**
-     *
+    
      */
     @Override
     protected void makeShootNoise() {
-        System.out.println("FIUM");
+        System.out.println("STIUUUM");
     }
-    
+
     /**
-     *
+    
      */
     @Override
-    protected void makeOutOfAmmoNoise(){
+    protected void makeOutOfAmmoNoise() {
         System.out.println("...");
+
     }
-    
+
     /**
-     *
+    
      */
+    @Override
     protected void makeReloadNoise() {
-        System.out.println("BRRR");
-    }
+        System.out.println("STRRRR");
+    }  
 }

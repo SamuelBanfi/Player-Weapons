@@ -10,15 +10,34 @@ import java.util.List;
  */
 public class Player {
     
+    String name;
+
+    /**
+    
+     */
     List<Weapon> weapons;
     
+    /**
+    
+     */
     Weapon currentWeapon;
     
+    /**
+    
+     */
     public Player() {
-        
         weapons = new ArrayList<>();
         currentWeapon = null;
+        this.name = "Anonymous";
     }
+
+    public Player(String nome) {
+        weapons = new ArrayList<>();
+        currentWeapon = null;
+        this.name = nome;
+    }
+
+
     
     /**
      * Questo metodo permette di cambiare l'arma se la grandezza
@@ -29,16 +48,17 @@ public class Player {
     public void changeWeapon() {
         
         if (weapons.size() != 0) {
+            int size = weapons.size();
             if (currentWeapon == null) {
                 currentWeapon = weapons.get(0);
-                
-                System.out.println("Current weapon: " + currentWeapon);
             } else {
-                int index = weapons.indexOf(currentWeapon) + 1;
-                
-                currentWeapon = weapons.get(index);
-                
-                System.out.println("Current weapon: " + currentWeapon);
+                int index = weapons.indexOf(currentWeapon);
+                if(index == size-1){
+                    currentWeapon = weapons.get(0);
+                }else{
+                    index = weapons.indexOf(currentWeapon);
+                    currentWeapon = weapons.get(index);
+                }
             }
         } else {
             System.out.println("Add weapons to select one");
@@ -72,5 +92,17 @@ public class Player {
         if (currentWeapon != null) {
             currentWeapon.reload();
         }
+    }
+
+    public final String getWeapons(){
+        String weap = "";
+        for(Weapon wp : weapons){
+            weap += wp + "\n";
+        }
+        return weap;
+    }
+
+    public final String toString(){
+        return "nome: " + this.name;
     }
 }

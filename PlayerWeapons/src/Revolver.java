@@ -6,8 +6,10 @@
  */
 public abstract class Revolver extends Weapon {
     
+    /**
+     *
+     */
     public Revolver(int ammoCapacity) {
-        
         super(ammoCapacity);
     }
 }

@@ -6,6 +6,9 @@
  */
 public abstract class SniperRifle extends Weapon {
     
+    /**
+     *
+     */
     public SniperRifle(int ammoCapacity) {
         
         super(ammoCapacity);
