@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,20 +9,23 @@ import java.util.List;
  */
 public class Player {
     
+    /**
+     * Il nome del player. 
+     */
     String name;
 
     /**
-    
+     * La lista di armi del player.
      */
     List<Weapon> weapons;
     
     /**
-    
+     * l'arma corrente utilizzata dal player.
      */
     Weapon currentWeapon;
     
     /**
-    
+     * Istanzia un oggetto di tipo player
      */
     public Player() {
         weapons = new ArrayList<>();
@@ -31,13 +33,15 @@ public class Player {
         this.name = "Anonymous";
     }
 
+    /**
+     * Istanzia un ogetto di tipo player parametrizzando il nome.
+     * @param nome il nome del player.
+     */
     public Player(String nome) {
         weapons = new ArrayList<>();
         currentWeapon = null;
         this.name = nome;
     }
-
-
     
     /**
      * Questo metodo permette di cambiare l'arma se la grandezza
@@ -68,7 +72,6 @@ public class Player {
      * @param weapon l'arma da aggiungere
      */
     public void addWeapon(Weapon weapon) {
-        
         weapons.add(weapon);  
     }
     
@@ -76,7 +79,6 @@ public class Player {
      * Se un'arma è selezionata permette di sparare.
      */
     public void shoot() {
-        
         if (currentWeapon != null) {
             currentWeapon.shoot();
         }else{
@@ -88,7 +90,6 @@ public class Player {
      * Se un'arma è selezionata permette di ricarcarla.
      */
     public void reloadWeapon() {
-        
         if (currentWeapon != null) {
             currentWeapon.reload();
         }else{
@@ -96,6 +97,9 @@ public class Player {
         }
     }
 
+    /**
+     * @return la lista delle armi del player.
+     */
     public final String getWeapons(){
         String weap = "";
         for(Weapon wp : weapons){
@@ -104,10 +108,16 @@ public class Player {
         return weap;
     }
 
+    /**
+     * @return l'arma corrente del player.    
+     */
     public final String getWeapon(){
         return this.currentWeapon.toString();
     }
 
+    /**
+     * @return sotto forma di stringa il nom del player.
+     */
     public final String toString(){
         return "nome player: " + this.name ;
     }

@@ -7,14 +7,14 @@
 
 public class Arch extends Weapon {
     /**
-    
+     * Istanzia un oggeto di tipo Arch.
      */
     public Arch() {
         super(50);
     }
 
     /**
-    
+     * Il suo dell'arco.
      */
     @Override
     protected void makeShootNoise() {
@@ -22,7 +22,7 @@ public class Arch extends Weapon {
     }
 
     /**
-    
+     * Il suono quando non hai munizioni.
      */
     @Override
     protected void makeOutOfAmmoNoise() {
@@ -31,7 +31,7 @@ public class Arch extends Weapon {
     }
 
     /**
-    
+     * Il suono quando ricarichi le freccie.
      */
     @Override
     protected void makeReloadNoise() {
