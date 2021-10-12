@@ -46,8 +46,7 @@ public class Player {
      * l'arma successiva a quella attiva.
      */
     public void changeWeapon() {
-        
-        if (weapons.size() != 0) {
+        if (weapons.size() > 0) {
             int size = weapons.size();
             if (currentWeapon == null) {
                 currentWeapon = weapons.get(0);
@@ -56,8 +55,7 @@ public class Player {
                 if(index == size-1){
                     currentWeapon = weapons.get(0);
                 }else{
-                    index = weapons.indexOf(currentWeapon);
-                    currentWeapon = weapons.get(index);
+                    currentWeapon = weapons.get(index + 1);
                 }
             }
         } else {
@@ -81,6 +79,8 @@ public class Player {
         
         if (currentWeapon != null) {
             currentWeapon.shoot();
+        }else{
+            System.out.println("No weapon selected");
         }
     }
     
@@ -91,6 +91,8 @@ public class Player {
         
         if (currentWeapon != null) {
             currentWeapon.reload();
+        }else{
+            System.out.println("No weapon selected");
         }
     }
 
@@ -102,7 +104,11 @@ public class Player {
         return weap;
     }
 
+    public final String getWeapon(){
+        return this.currentWeapon.toString();
+    }
+
     public final String toString(){
-        return "nome: " + this.name;
+        return "nome player: " + this.name ;
     }
 }
