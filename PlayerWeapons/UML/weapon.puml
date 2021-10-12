@@ -1,0 +1,89 @@
+@startuml weapon
+    skinparam defaultFontName Monospaced
+    skinparam monochrome true
+    skinparam classAttributeIconSize 0
+    hide circle
+    class Player{
+        + Player()
+        + void changeWeapon()
+        + void addWeapon(Weapon weapon)
+        + void shoot()
+        + void reloadWeapon()
+        + <<final>> String toString()
+        + <<final>> String getWeapons()
+        + <<final>> String getWeapon()
+    }
+
+    abstract Weapon{
+            - int ammo = 0
+            - int AMMO_CAPACITY
+        + Weapon(int ammoCapacity)
+        # {abstract} <<abstract>> void makeShootNoise()
+        # {abstract} <<abstract>> void makeOutOfAmmoNoise()
+        # {abstract} <<abstract>> void makeReloadNoise()
+        + <<final>> void shoot()
+        + <<final>> void reload()
+        + <<final>> String toString()
+        + int getAmmoCapacity()
+        + int getAmmo()
+    }
+
+    class Sling{
+        + Sling()
+    }
+
+    abstract Revolver{
+        + Revolver(int ammoCapacity)
+    }
+
+    class ColtDragon{
+        + ColtDragon()
+    }
+
+    class RugerBlackhawk{
+        + RugerBlackhawk()
+    }
+
+    class Arch{
+        + Arch()
+    }
+
+    abstract AssaultRifle{
+        + AssaultRifle(ammoCapacity)
+    }
+
+    abstract SniperRifle{
+        + SniperRifle(ammoCapacity)
+    }
+
+    class Ak47{
+        + Ak47()
+    }
+
+    class Arx160{
+        + Arx160()
+    }
+
+    class Dragunov{
+        + Dragunov()
+    }
+
+    class Barret{
+        + Barret()
+    }
+
+
+    Weapon <|-- Sling
+    Weapon <|-- Revolver
+    Weapon <|-- AssaultRifle
+    Weapon <|-- SniperRifle
+    Weapon <|-- Arch
+    AssaultRifle <|-- Ak47
+    AssaultRifle <|-- Arx160
+    SniperRifle <|-- Barret
+    SniperRifle <|-- Dragunov
+    Revolver <|-- ColtDragon
+    Revolver <|-- RugerBlackhawk
+    Player o-- "1..*" Weapon: weapons
+    Player o-- Weapon: currentWeapon
+@enduml
